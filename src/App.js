@@ -20,21 +20,19 @@ function App() {
         <div className="monster">
           {/* the width of the alien should be ten times whatever the alien size is in state */}
           <img src="alien.png" width={alienSize * 10} />
-          <div className='buttons'>
-            {/* when you click this button, the alien's size in state should go up by one */}
-            <button onClick={() => setAlienSize(alienSize + 1)}>Oh no! The alien is gobblin up all the electricity!</button>
-            {/* when you click this button, the lizard's size in state should go down by one */}
-            <button >Amazing! The alien zapped the lizard!</button>
+          <div className='alien-buttons'>
+           
+            <button id="alien-plus" onClick={() => setAlienSize(alienSize + 1)}>Oh no! The alien is gobblin up all the electricity!</button>
+            <button id= "lizard-minus" onClick={() => setLizardSize(lizardSize - 1)}>Amazing! The alien zapped the lizard!</button>
           </div>
         </div>
         <div className="monster">
           {/* the width of the lizard should be ten times whatever the alien size is in state */}
-          <img src="lizard.png" width={20} />
-          <div className="buttons">
-            {/* when you click this button, the lizard's size in state should go up by one */}
-            <button>Yegads! The lizard is ramping up to its final form!</button>
-            {/* when you click this button, the alien's size in state should go up by one */}
-            <button>Oh my! The lizard chomped down on the alien!</button>
+          <img src="lizard.png" width={alienSize * 10} />
+          <div className="lizard-buttons">
+          
+            <button id="lizard-add" onClick={() => setLizardSize(lizardSize + 1)}>Yegads! The lizard is ramping up to its final form!</button>
+            <button id="alien-minus" onClick={() => setAlienSize(alienSize - 1)}>Oh my! The lizard chomped down on the alien!</button>
           </div>
         </div>
       </div>
