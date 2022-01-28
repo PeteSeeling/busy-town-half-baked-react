@@ -20,19 +20,19 @@ function App() {
         <div className="monster">
           {/* the width of the alien should be ten times whatever the alien size is in state */}
           <img src="alien.png" width={alienSize * 10} />
-          <div className='alien-buttons'>
-           
-            <button id="alien-plus" onClick={() => setAlienSize(alienSize + 1)}>Oh no! The alien is gobblin up all the electricity!</button>
-            <button id= "lizard-minus" onClick={() => setLizardSize(lizardSize - 1)}>Amazing! The alien zapped the lizard!</button>
+          <div className="buttons">
+            <button onClick={() => setLizardSize(lizardSize - 1)}>Amazing! The alien zapped the lizard!</button>
+            <button onClick={() => setAlienSize(alienSize + 1)}>Oh no! The alien is gobblin up all the electricity!</button>
+            
           </div>
         </div>
         <div className="monster">
           {/* the width of the lizard should be ten times whatever the alien size is in state */}
-          <img src="lizard.png" width={alienSize * 10} />
-          <div className="lizard-buttons">
+          <img src="lizard.png" width={lizardSize * 10} />
+          <div className="buttons">
           
-            <button id="lizard-add" onClick={() => setLizardSize(lizardSize + 1)}>Yegads! The lizard is ramping up to its final form!</button>
-            <button id="alien-minus" onClick={() => setAlienSize(alienSize - 1)}>Oh my! The lizard chomped down on the alien!</button>
+            <button onClick={() => setLizardSize(lizardSize + 1)}>Yegads! The lizard is ramping up to its final form!</button>
+            <button onClick={() => setAlienSize(alienSize - 1)}>Oh my! The lizard chomped down on the alien!</button>
           </div>
         </div>
       </div>
@@ -51,16 +51,13 @@ function App() {
       Do you have something like that in state that you could pass as a vehicles prop? 
       */}
       <VehicleList vehiclesArray={vehiclesArray}/>
-      <div className='buttons'>
+      <div className='buttons' id='vehicles-array'>
         {/* This part is weird */}
-        {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'car' to the end */}
-        <button onClick={setVehiclesArray([vehiclesArray, 'car'])}>Car</button>
-        {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'bus' to the end */}
-        <button>Bus</button>
-        {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'truck' to the end */}
-        <button>Truck</button>
-        {/* On click, you should set the traffic in state to be a copy of the same array that's already in state, but immutably add a 'motorcycle' to the end */}
-        <button>Motorcycle</button>
+        <button onClick={() => setVehiclesArray([...vehiclesArray, 'car'])}>Car</button>
+        <button onClick={() => setVehiclesArray([...vehiclesArray, 'bus'])}>Bus</button>
+        <button onClick={() => setVehiclesArray([...vehiclesArray, 'truck'])}>Truck</button>
+        <button onClick={() => setVehiclesArray([...vehiclesArray, 'motorcycle'])}>Motorcycle</button>
+       
       </div>
 
     </div>
