@@ -87,3 +87,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+.vehicle{
+  display:flex;
+  flex-direction: row;
+  margin:5px;
+}
