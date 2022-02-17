@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, getByTitle } from '@testing-library/react';
 import App from './App';
 import TrafficLight from './TrafficLight';
 
@@ -11,11 +11,17 @@ test('Yegads!', () => {
 
 test('', async () => {
   render(<TrafficLight />);
-  const buttonElement = screen.getByDisplayValue('yellow');
+  const buttonElement = screen.getAllByText('yellow');
 
   fireEvent.click(buttonElement, { target: { value: 'yellow' } });
 
-  const colorElement = await screen.findByText(/yellow/i);
-  expect(colorElement).toBeInTheDocument();
+  const yellowElement = await screen.findByText(/yellow/i);
+  expect(yellowElement).toBeInTheDocument();
+  const greenElement = await screen.findByText(/green/i);
+  expect(greenElement).toBeInTheDocument();
+  const redElement = await screen.findByText(/red/i);
+  expect(redElement).toBeInTheDocument();
 
 });
+
+expect(getByTitle(document.documentElement, 'TrafficLight'),).toBeInTheDocument();
